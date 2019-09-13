@@ -1,12 +1,12 @@
 import org.testng.annotations.Test;
 
-import com.sun.xml.bind.v2.schemagen.xmlschema.List;
-
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
+
+import java.util.List;
 
 
 public class getLatestTweet {
@@ -20,7 +20,7 @@ public class getLatestTweet {
 	public void getTweet()
 	{
 		
-		RestAssured.baseURI="https://api.twitter.com/1.1/statuses";
+	RestAssured.baseURI="https://api.twitter.com/1.1/statuses";
 	Response res=	given().auth().oauth(ConsumerKey, ConsumerSecret, Token, TokenSecret)
 		.queryParam("count", "1")
 		.when().get("/home_timeline.json").then().extract().response();
